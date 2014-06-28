@@ -1,0 +1,17 @@
+<div class="header" ng-controller="ThreadCtrl">
+  <h2>Real Time ForuM</h2>
+   <div class="threadContainer">
+    <span>Add a New Thread:</span><input ng-model="newThreadTitle" ng-keydown="addThread($event)"/>
+
+    <div ng-repeat="(id, thread) in threads">
+    <p class="thread" ng-click="changeThread(id)">{{thread.name}}</p>
+    </div>
+   </div>
+   <div ng-show="showReply" class="reply_container"> 
+    <h4 class="thread">{{currentSelection.name}}</h4>
+    <div class ="replies" ng-repeat="reply in replies">
+    <p>{{reply.name}}</p>
+    </div>
+    <span ng-show="showReply">Reply to {{currentSelection.name}}:<input ng-model="newReply" ng-keydown="addReply($event)"></input></span>
+   </div>
+</div> 
